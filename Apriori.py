@@ -54,7 +54,7 @@ frequent_counts = one_frequent_counts
 frequent= one_frequent
 # print(len(one_frequent_counts))
 while(step < i):
-    step+=1;
+    step += 1;
     if step == 2:
         combinations_list = list(combinations(frequent, 2))
         frequent = np.array(combinations_list)
@@ -72,13 +72,13 @@ while(step < i):
 
         # print(len(frequent_counts))
         print(frequent_counts)
-    if step >2:
+    if step > 2:
         new_frequent = []
         for i, list_i in enumerate(frequent):
             for j, item_j in enumerate(one_frequent):
                 if item_j in list_i:
                     continue
-                if item_j.append()
-
+                if item_j.append(list_i)
+            
     # 计算STEP频繁项集
     
