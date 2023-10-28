@@ -1,12 +1,11 @@
 import os
 import numpy as np
 from itertools import combinations
-import time
 
 # 设置支持度
 support_rate = 0.05
 # 设置频繁几项式
-n = 4  # 这里假设你要挖掘频繁2项集，可以根据需要修改n的值
+n = 2  # 这里假设你要挖掘频繁2项集，可以根据需要修改n的值
 # 设置读取几条transaction
 transaction_num = 100
 
@@ -29,7 +28,7 @@ with open(file_name, 'r') as f:
             break  # 当达到100行时停止读取
 
 data = np.array([np.array(lst) for lst in datalist])
-begin_time = time.perf_counter()
+
 # 定义函数来生成候选项集
 def generate_candidates(itemset, size):
     candidates = set()
@@ -66,10 +65,8 @@ for size in range(2, n + 1):
         support = calculate_support(candidate, data)
         if support >= support_rate:
             frequent_itemsets[candidate] = support
-end_time = time.perf_counter()
+
 # 输出指定的频繁n项集
 for itemset, support in frequent_itemsets.items():
     if len(itemset) == n:
         print("Frequent itemset:", itemset, "Support:", int(support*transaction_num))
-
-print('程序运行时间:%s毫秒' % ((end_time - begin_time)*1000))

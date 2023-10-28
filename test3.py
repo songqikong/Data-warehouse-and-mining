@@ -4,9 +4,9 @@ import time
 from itertools import combinations
 
 # 设置支持度
-support_rate = 0.06
+support_rate = 0.08
 # 设置频繁几项式
-n = 4
+n = 3
 # 设置读取几条transaction
 max_line = 100
 
@@ -97,9 +97,9 @@ while step < n:
         if len(frequent) == 0:
             print("没有 " + str(step) + " 频繁项集了")
             break
-        
+
         for i in range(len(frequent)):
             print(f'Frequent itemset: {frequent[i]} Support: {frequent_counts[i]}')
-end_time = time.perf_counter()
 
+end_time = time.perf_counter()
 print('程序运行时间:%s毫秒' % ((end_time - begin_time)*1000))
